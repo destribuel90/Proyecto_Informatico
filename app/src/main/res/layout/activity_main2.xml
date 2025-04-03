@@ -120,7 +120,7 @@
                 android:layout_columnWeight="1"
                 android:orientation="vertical"
                 android:padding="8dp"
-                android:background="#CFD8DC"
+                android:background="@drawable/form_rectangle"
                 android:layout_margin="8dp">
 
                 <TextView
@@ -149,6 +149,7 @@
                     android:textColor="#ffffff"
                     android:padding="12dp" />
             </LinearLayout>
+
 
             <!-- Otras cards se pueden agregar de forma similar -->
         </GridLayout>
