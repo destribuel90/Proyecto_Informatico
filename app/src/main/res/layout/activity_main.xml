@@ -88,13 +88,13 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/jbtnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
             android:layout_marginBottom="30dp"
-            android:backgroundTint="@null"
             android:background="@drawable/button_mode"
-            />
+            android:backgroundTint="@null"
+            android:text="Login" />
 
         <TextView
             android:layout_width="match_parent"
