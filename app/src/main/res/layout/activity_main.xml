@@ -32,10 +32,10 @@
             android:layout_marginBottom="20dp"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
-            android:text="Login"
+            android:text="WAZA"
+            android:textColor="@color/black"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textStyle="bold" />
 
         <!-- Username Label -->
         <TextView
