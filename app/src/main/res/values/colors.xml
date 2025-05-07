@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="mi_nuevo_color">#0000FF</color>
+    <color name="primaryColor">#861944</color>
+    <color name="accentColor">#DB1D4B</color>
+    <color name="backgroundGray">#F2F2F2</color>
+    <color name="iconColor">#000000</color>
+    <color name="primaryColor2">#6A1B9A</color> <!-- morado intenso -->
+    <color name="accentColor2">#AB47BC</color> <!-- lila -->
+    <color name="backgroundGray2">#F5F5F5</color>
 </resources>

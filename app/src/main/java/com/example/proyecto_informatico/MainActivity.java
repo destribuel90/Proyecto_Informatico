@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         });
         login = findViewById(R.id.jbtnLogin);
         login.setOnClickListener(view -> {
-            Intent intent = new Intent(this, MainActivity2.class);
+            Intent intent = new Intent(this, Search.class);
             startActivity(intent);
         });
     }
