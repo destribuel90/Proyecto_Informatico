@@ -7,8 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/backgroundGray"
-    >
+    android:background="@color/backgroundGray">
 
     <!-- Header -->
     <View
@@ -150,7 +149,7 @@
             android:layout_marginStart="24dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_home"
-            android:tint="@android:color/white"/>
+            app:tint="@android:color/white" />
 
         <ImageButton
             android:id="@+id/nav_search"
@@ -161,7 +160,7 @@
             android:layout_marginStart="24dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_search"
-            android:tint="@android:color/white"/>
+            app:tint="@android:color/white" />
 
         <!-- FAB integrado en la barra -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -183,7 +182,7 @@
             android:layout_marginEnd="24dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_folder"
-            android:tint="@android:color/white"/>
+            app:tint="@android:color/white" />
 
         <ImageButton
             android:id="@+id/nav_profile"
@@ -194,7 +193,7 @@
             android:layout_marginEnd="24dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_profile_circle"
-            android:tint="@android:color/white"/>
+            app:tint="@android:color/white" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

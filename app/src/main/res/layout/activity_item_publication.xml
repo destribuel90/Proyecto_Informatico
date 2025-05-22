@@ -55,20 +55,21 @@
             android:layout_marginTop="4dp"/>
 
         <!-- Calificación -->
-        <RatingBar
-            android:id="@+id/rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:stepSize="1"
-            android:numStars="5"
-            android:isIndicator="true"
-            android:rating="4"
-            style="@style/Widget.AppCompat.RatingBar.Small"
-            app:layout_constraintTop_toBottomOf="@id/descripcion_publicacion"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="8dp"/>
 
         <!-- Botones: Guardar y Compartir -->
+        <RatingBar
+            android:id="@+id/rating"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="4"
+            android:stepSize="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descripcion_publicacion" />
+
         <Button
             android:id="@+id/btn_guardar"
             android:layout_width="0dp"
