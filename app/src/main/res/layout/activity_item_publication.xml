@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ItemPublication">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,43 +17,43 @@
             android:id="@+id/img_publicacion"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
             android:contentDescription="@string/cd_publicacion_imagen"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_placeholder"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Título -->
         <TextView
             android:id="@+id/titulo_publicacion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:text="Nombre de la publicación"
+            android:textColor="@color/iconColor"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/iconColor"
-            android:maxLines="2"
-            android:ellipsize="end"
-            app:layout_constraintTop_toBottomOf="@id/img_publicacion"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_publicacion" />
 
         <!-- Descripción -->
         <TextView
             android:id="@+id/descripcion_publicacion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Resumen breve del contenido educativo…"
-            android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"
-            android:maxLines="3"
+            android:layout_marginTop="4dp"
             android:ellipsize="end"
-            app:layout_constraintTop_toBottomOf="@id/titulo_publicacion"
-            app:layout_constraintStart_toStartOf="parent"
+            android:maxLines="3"
+            android:text="Resumen breve del contenido educativo…"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="4dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titulo_publicacion" />
 
         <!-- Calificación -->
 
@@ -74,31 +75,31 @@
             android:id="@+id/btn_guardar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Guardar"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/primaryColor"
             android:drawableStart="@drawable/ic_save"
             android:drawablePadding="8dp"
-            android:backgroundTint="@color/primaryColor"
+            android:text="Guardar"
             android:textColor="@android:color/white"
-            app:layout_constraintTop_toBottomOf="@id/rating"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btn_compartir"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="8dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating" />
 
         <Button
             android:id="@+id/btn_compartir"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Compartir"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/accentColor"
             android:drawableStart="@drawable/ic_share"
             android:drawablePadding="8dp"
-            android:backgroundTint="@color/accentColor"
+            android:text="Compartir"
             android:textColor="@android:color/white"
-            app:layout_constraintTop_toBottomOf="@id/rating"
-            app:layout_constraintStart_toEndOf="@id/btn_guardar"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="8dp"/>
+            app:layout_constraintStart_toEndOf="@id/btn_guardar"
+            app:layout_constraintTop_toBottomOf="@id/rating" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
