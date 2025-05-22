@@ -127,13 +127,11 @@
             <!-- Card 1 -->
             <LinearLayout
                 android:id="@+id/card1"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:orientation="vertical"
-                android:padding="8dp"
                 android:background="@drawable/form_rectangle"
-                android:layout_margin="8dp">
+               >
 
                 <TextView
                     android:id="@+id/card1_title"

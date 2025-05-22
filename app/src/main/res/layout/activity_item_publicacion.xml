@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItemPublication">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Imagen de portada -->
+        <ImageView
+            android:id="@+id/img_publicacion"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/cd_publicacion_imagen"
+            android:src="@drawable/ic_placeholder"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/titulo_publicacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nombre de la publicación"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/iconColor"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/img_publicacion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/descripcion_publicacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Resumen breve del contenido educativo…"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:maxLines="3"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/titulo_publicacion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"/>
+
+        <!-- Calificación -->
+        <RatingBar
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stepSize="1"
+            android:numStars="5"
+            android:isIndicator="true"
+            android:rating="4"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            app:layout_constraintTop_toBottomOf="@id/descripcion_publicacion"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Botones: Guardar y Compartir -->
+        <Button
+            android:id="@+id/btn_guardar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:drawableStart="@drawable/ic_save"
+            android:drawablePadding="8dp"
+            android:backgroundTint="@color/primaryColor"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/rating"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_compartir"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btn_compartir"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Compartir"
+            android:drawableStart="@drawable/ic_share"
+            android:drawablePadding="8dp"
+            android:backgroundTint="@color/accentColor"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/rating"
+            app:layout_constraintStart_toEndOf="@id/btn_guardar"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="8dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
