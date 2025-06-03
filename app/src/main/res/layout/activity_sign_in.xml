@@ -19,7 +19,7 @@
             android:id="@+id/signup_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrarse"
+            android:text="Registrarse papus sexo"
             android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
