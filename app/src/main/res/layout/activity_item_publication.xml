@@ -17,9 +17,8 @@
             android:id="@+id/img_publicacion"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:contentDescription="@string/cd_publicacion_imagen"
+            android:contentDescription="wazaa"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_placeholder"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

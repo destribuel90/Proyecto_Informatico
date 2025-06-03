@@ -9,4 +9,5 @@
     <color name="primaryColor2">#6A1B9A</color> <!-- morado intenso -->
     <color name="accentColor2">#AB47BC</color> <!-- lila -->
     <color name="backgroundGray2">#F5F5F5</color>
+    <color name="gray_700">#8A000000</color>
 </resources>
