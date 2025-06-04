@@ -45,9 +45,9 @@
             <View
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:background="@drawable/circle_bg"
-                android:backgroundTint="@color/accentColor" />
 
+                android:backgroundTint="@color/accentColor" />
+<!--            android:background="@drawable/circle_bg"-->
             <!-- Descripción breve con ellipsize -->
             <TextView
                 android:id="@+id/txtDescription"
