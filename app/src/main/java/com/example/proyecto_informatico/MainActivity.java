@@ -26,7 +26,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    Button login;
+    Button btnProfile, btnHome, btnSearch, btnAdd;
     private RecyclerView recyclerMaterial;
     private MaterialAdapter materialAdapter;
     private List<Material> materialList = new ArrayList<>();
@@ -41,13 +41,32 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        btnProfile = findViewById(R.id.nav_profile);
+        btnHome = findViewById(R.id.nav_home);
+        btnSearch = findViewById(R.id.nav_search);
+        btnAdd = findViewById(R.id.nav_add);
         recyclerMaterial = findViewById(R.id.recyclerViewCards);
         recyclerMaterial.setLayoutManager(new LinearLayoutManager(this));
         materialAdapter = new MaterialAdapter(materialList);
         recyclerMaterial.setAdapter(materialAdapter);
 
         fetchMaterialData();
+        btnProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Profile.class);
+            startActivity(intent);
+        });
+        btnHome.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
+        btnSearch.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Search.class);
+            startActivity(intent);
+        });
+        btnAdd.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ButtonCreate.class);
+            startActivity(intent);
+        });
     }
     private void fetchMaterialData() {
         Call<List<Material>> call = RetrofitClient.getApiService().getMaterials();
