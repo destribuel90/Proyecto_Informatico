@@ -122,8 +122,12 @@
         android:layout_marginTop="16dp">
 
         <com.google.android.material.tabs.TabItem
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:text="Creados"/>
         <com.google.android.material.tabs.TabItem
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
             android:text="Guardado"/>
     </com.google.android.material.tabs.TabLayout>
 
