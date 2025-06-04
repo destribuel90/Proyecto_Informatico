@@ -10,4 +10,6 @@
     <color name="accentColor2">#AB47BC</color> <!-- lila -->
     <color name="backgroundGray2">#F5F5F5</color>
     <color name="gray_700">#8A000000</color>
+    <color name="rosaSuave">#BF8AA1</color>
+
 </resources>
