@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -26,7 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnProfile, btnHome, btnSearch, btnAdd;
+    ImageButton btnProfile, btnHome, btnSearch, btnAdd;
     private RecyclerView recyclerMaterial;
     private MaterialAdapter materialAdapter;
     private List<Material> materialList = new ArrayList<>();
@@ -35,16 +36,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
+        btnProfile = findViewById(R.id.nav_profile);
+        btnHome = findViewById(R.id.nav_home);
+        btnSearch = findViewById(R.id.nav_search);
+        btnAdd = findViewById(R.id.nav_add);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        btnProfile = findViewById(R.id.nav_profile);
-        btnHome = findViewById(R.id.nav_home);
-        btnSearch = findViewById(R.id.nav_search);
-        btnAdd = findViewById(R.id.nav_add);
+
         recyclerMaterial = findViewById(R.id.recyclerViewCards);
         recyclerMaterial.setLayoutManager(new LinearLayoutManager(this));
         materialAdapter = new MaterialAdapter(materialList);

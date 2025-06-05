@@ -6,7 +6,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 public class RetrofitClient {
-    private static final String BASE_URL = "http://31.220.22.166";
+    private static final String BASE_URL = "http://31.220.22.166:8000/api/";
     private static Retrofit retrofit = null;
     public static ApiService getApiService() {
         if(retrofit == null) {
