@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile"
+    android:background="@color/backgroundGray">
+
+    <!-- Header -->
+    <View
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/primaryColor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Logo + Título PoliEduca -->
+    <LinearLayout
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="@id/header"
+        app:layout_constraintBottom_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/logoPolieduca"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo_polieduca"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/titlePolieduca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PoliEduca"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- Iconos menú -->
+    <ImageButton
+        android:id="@+id/menu1"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/more_vert"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Imagen de perfil -->
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/circle_bg"
+        android:src="@drawable/person"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Nombre del usuario -->
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOMBRE DEL USUARIO"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/profile_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Tabs solo con "Creados" -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/primaryColor"
+        app:tabTextColor="@android:color/black"
+        app:tabSelectedTextColor="@color/primaryColor"
+        app:layout_constraintTop_toBottomOf="@id/user_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Creados"/>
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- Rejilla de contenidos -->
+    <GridView
+        android:id="@+id/grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:numColumns="2"
+        android:verticalSpacing="8dp"
+        android:horizontalSpacing="8dp"
+        android:layout_margin="16dp"
+        android:stretchMode="columnWidth"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout"
+        app:layout_constraintBottom_toTopOf="@id/custom_bottom_nav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Barra de navegación inferior personalizada -->
+    <RelativeLayout
+        android:id="@+id/custom_bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/primaryColor"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Contenedor de botones centrado -->
+        <LinearLayout
+            android:id="@+id/nav_buttons_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_centerInParent="true">
+
+            <!-- Crear publicación -->
+            <ImageButton
+                android:id="@+id/nav_add"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginHorizontal="25dp"
+                android:background="@drawable/background_rounded_rosa"
+                android:src="@drawable/ic_add"
+                android:contentDescription="Crear"
+                app:tint="@android:color/white" />
+
+            <!-- Inicio -->
+            <ImageButton
+                android:id="@+id/nav_home"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginHorizontal="25dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/home_48"
+                android:contentDescription="Inicio"
+                app:tint="@android:color/white" />
+
+            <!-- Buscar -->
+            <ImageButton
+                android:id="@+id/nav_search"
+                android:layout_width="46dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="25dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/search_48"
+                android:contentDescription="Buscar"
+                app:tint="@android:color/white" />
+
+            <!-- Usuario -->
+            <ImageButton
+                android:id="@+id/nav_profile"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginHorizontal="25dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/account_circle_48"
+                android:contentDescription="Perfil"
+                app:tint="@android:color/white" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
