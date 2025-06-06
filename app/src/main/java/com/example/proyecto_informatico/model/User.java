@@ -6,6 +6,8 @@ public class User {
     private int id;
     @SerializedName("name")
     private String name;
+    @SerializedName("email")
+    private String email;
     @SerializedName("role")
     private String role;
     @SerializedName("profile_photo_path")
@@ -25,6 +27,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getRole() {

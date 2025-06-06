@@ -1,10 +1,7 @@
 package com.example.proyecto_informatico;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -15,8 +12,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.proyecto_informatico.model.MaterialsResponse.Material;
 
-import com.example.proyecto_informatico.model.Material;
+import com.example.proyecto_informatico.model.MaterialsResponse;
+import com.example.proyecto_informatico.network.ApiService;
 import com.example.proyecto_informatico.network.RetrofitClient;
 
 import java.util.ArrayList;
@@ -28,6 +27,9 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     ImageButton btnProfile, btnHome, btnSearch, btnAdd;
+    private static final String TAG = "MainActivity";
+    private static final String PREFS_NAME = "mi_prefs";
+    private static final String TOKEN_KEY = "TOKEN_KEY";
     private RecyclerView recyclerMaterial;
     private MaterialAdapter materialAdapter;
     private List<Material> materialList = new ArrayList<>();
@@ -70,27 +72,42 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void fetchMaterialData() {
-        Call<List<Material>> call = RetrofitClient.getApiService().getMaterials();
-        call.enqueue(new Callback<List<Material>>() {
+        ApiService api = RetrofitClient.getApiService();
+        Call<MaterialsResponse> call = api.getMaterials();
+
+        call.enqueue(new Callback<MaterialsResponse>() {
             @Override
-            public void onResponse(Call<List<Material>> call, Response<List<Material>> response) {
+            public void onResponse(Call<MaterialsResponse> call, Response<MaterialsResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
+                    // 1) Obtenemos el objeto completo
+                    MaterialsResponse mr = response.body();
+
+                    // 2) Extraemos la lista real de Material
+                    List<Material> lista = mr.getContent();
+
+                    // 3) Actualizamos nuestra materialList y notificamos al adapter
                     materialList.clear();
-                    materialList.addAll(response.body());
+                    materialList.addAll(lista);
                     materialAdapter.notifyDataSetChanged();
                 } else {
-                    Toast.makeText(MainActivity.this,
+                    Toast.makeText(
+                            MainActivity.this,
                             "Error al obtener datos: " + response.code(),
-                            Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_SHORT
+                    ).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Material>> call, Throwable t) {
-                Toast.makeText(MainActivity.this,
+            public void onFailure(Call<MaterialsResponse> call, Throwable t) {
+                Toast.makeText(
+                        MainActivity.this,
                         "Fallo en la petición: " + t.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT
+                ).show();
             }
         });
-        }
     }
+
+
+}

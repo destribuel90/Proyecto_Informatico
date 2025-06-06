@@ -70,26 +70,17 @@
     </com.google.android.material.tabs.TabLayout>
 
     <!-- Contenido scrollable: 2 columnas -->
-    <ScrollView
-        android:id="@+id/scroll_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCards"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:padding="8dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
         app:layout_constraintTop_toBottomOf="@id/tabs_main"
         app:layout_constraintBottom_toTopOf="@id/custom_bottom_nav"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewCards"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:padding="8dp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </ScrollView>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <RelativeLayout
         android:id="@+id/custom_bottom_nav"

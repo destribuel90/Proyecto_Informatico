@@ -130,7 +130,9 @@
                     android:padding="12dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="48dp"/>
 
             <!-- Botón Registrarse -->
             <Button
