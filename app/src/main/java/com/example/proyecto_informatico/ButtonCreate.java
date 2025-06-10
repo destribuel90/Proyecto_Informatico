@@ -27,49 +27,49 @@ public class ButtonCreate extends AppCompatActivity {
             return insets;
         });
 
-        // === TÍTULO ===
-        EditText editTitle = findViewById(R.id.edit_title);
-        TextView charCounterTitle = findViewById(R.id.char_counter_title);
-
-        int maxTitleChars = 100;
-        editTitle.setFilters(new InputFilter[]{
-                new InputFilter.LengthFilter(maxTitleChars)
-        });
-
-        editTitle.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                charCounterTitle.setText(s.length() + "/" + maxTitleChars);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {}
-        });
-
-        // === DESCRIPCIÓN ===
-        EditText editDescription = findViewById(R.id.edit_description);
-        TextView charCounterDesc = findViewById(R.id.char_counter_description);
-
-        int maxDescChars = 500;
-        editDescription.setFilters(new InputFilter[]{
-                new InputFilter.LengthFilter(maxDescChars)
-        });
-
-        editDescription.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                charCounterDesc.setText(s.length() + "/" + maxDescChars);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {}
-        });
+//        // === TÍTULO ===
+//        EditText editTitle = findViewById(R.id.edit_title);
+//        TextView charCounterTitle = findViewById(R.id.char_counter_title);
+//
+//        int maxTitleChars = 100;
+//        editTitle.setFilters(new InputFilter[]{
+//                new InputFilter.LengthFilter(maxTitleChars)
+//        });
+//
+//        editTitle.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                charCounterTitle.setText(s.length() + "/" + maxTitleChars);
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {}
+//        });
+//
+//        // === DESCRIPCIÓN ===
+//        EditText editDescription = findViewById(R.id.edit_description);
+//        TextView charCounterDesc = findViewById(R.id.char_counter_description);
+//
+//        int maxDescChars = 500;
+//        editDescription.setFilters(new InputFilter[]{
+//                new InputFilter.LengthFilter(maxDescChars)
+//        });
+//
+//        editDescription.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                charCounterDesc.setText(s.length() + "/" + maxDescChars);
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {}
+//        });
     }
 }
 
