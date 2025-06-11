@@ -11,5 +11,6 @@
     <color name="backgroundGray2">#F5F5F5</color>
     <color name="gray_700">#8A000000</color>
     <color name="rosaSuave">#BF8AA1</color>
-
+    <color name="primary">#000000</color>
+    <color name="image_placeholder">#F5F5F5</color>
 </resources>

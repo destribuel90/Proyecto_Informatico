@@ -2,38 +2,42 @@ package com.example.proyecto_informatico.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
+public class MaterialsResponse<T> {
 
-public class MaterialsResponse {
     @SerializedName("status")
     private String status;
 
-    @SerializedName("content")
-    private List<Material> content;
+    @SerializedName(value = "content", alternate = { "data" })
+    private T payload;
+
     @SerializedName("filters")
     private Filters filters;
 
     @SerializedName("pagination")
     private Pagination pagination;
 
-    // Getters y setters
+    // ----- Getters & Setters -----
+
     public String getStatus() {
         return status;
     }
+
     public void setStatus(String status) {
         this.status = status;
     }
 
-    public List<Material> getContent() {
-        return content;
+    public T getPayload() {
+        return payload;
     }
-    public void setContent(List<Material> content) {
-        this.content = content;
+
+    public void setPayload(T payload) {
+        this.payload = payload;
     }
 
     public Filters getFilters() {
         return filters;
     }
+
     public void setFilters(Filters filters) {
         this.filters = filters;
     }
@@ -41,13 +45,41 @@ public class MaterialsResponse {
     public Pagination getPagination() {
         return pagination;
     }
+
     public void setPagination(Pagination pagination) {
         this.pagination = pagination;
     }
 
+    /**
+     * Subclase para filtros opcionales en paginación.
+     */
+    public static class Filters {
+        @SerializedName("search")
+        private String search;
 
-    public class Material {
+        @SerializedName("semester")
+        private String semester;
 
+        @SerializedName("unit")
+        private String unit;
+
+        // Getters & Setters omitted for brevity
+    }
+
+    public static class Pagination {
+        @SerializedName("current_page")
+        private int currentPage;
+
+        @SerializedName("total_pages")
+        private int totalPages;
+
+        // Getters & Setters omitted for brevity
+    }
+
+    /**
+     * Modelo Material como clase estática.
+     */
+    public static class Material {
         @SerializedName("id")
         private int id;
 
@@ -57,15 +89,12 @@ public class MaterialsResponse {
         @SerializedName("professor")
         private String professor;
 
-        // En el JSON la clave es "file_url", pero en Java conviene nombrarlo camelCase:
-        @SerializedName("file_url")
+        @SerializedName(value = "file_url", alternate = { "file_path" })
         private String fileUrl;
 
-        // En el JSON "semester" viene como string ("6"), por eso lo mapeamos a String.
         @SerializedName("semester")
         private String semester;
 
-        // Ídem para "unit":
         @SerializedName("unit")
         private String unit;
 
@@ -75,7 +104,6 @@ public class MaterialsResponse {
         @SerializedName("is_bookmarked")
         private boolean isBookmarked;
 
-        // ====== Getters y Setters ======
         public int getId() {
             return id;
         }
@@ -139,60 +167,6 @@ public class MaterialsResponse {
         public void setBookmarked(boolean bookmarked) {
             isBookmarked = bookmarked;
         }
+// Getters & Setters omitted for brevity
     }
-    public class Filters {
-        @SerializedName("search")
-        private String search;
-        @SerializedName("semester")
-        private String semester;
-        @SerializedName("unit")
-        private String unit;
-
-        public String getSearch() {
-            return search;
-        }
-
-        public void setSearch(String search) {
-            this.search = search;
-        }
-
-        public String getSemester() {
-            return semester;
-        }
-
-        public void setSemester(String semester) {
-            this.semester = semester;
-        }
-
-        public String getUnit() {
-            return unit;
-        }
-
-        public void setUnit(String unit) {
-            this.unit = unit;
-        }
-    }
-    public class Pagination {
-        @SerializedName("current_page")
-        private int currentPage;
-        @SerializedName("total_pages")
-        private int totalPages;
-
-        public int getCurrentPage() {
-            return currentPage;
-        }
-
-        public void setCurrentPage(int currentPage) {
-            this.currentPage = currentPage;
-        }
-
-        public int getTotalPages() {
-            return totalPages;
-        }
-
-        public void setTotalPages(int totalPages) {
-            this.totalPages = totalPages;
-        }
-    }
-
 }

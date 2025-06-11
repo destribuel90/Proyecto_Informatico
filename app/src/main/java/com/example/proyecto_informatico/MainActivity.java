@@ -1,6 +1,7 @@
 package com.example.proyecto_informatico;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -25,7 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MaterialAdapter.OnItemClickListener{
     ImageButton btnProfile, btnHome, btnSearch, btnAdd;
     private static final String TAG = "MainActivity";
     private static final String PREFS_NAME = "mi_prefs";
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerMaterial = findViewById(R.id.recyclerViewCards);
         recyclerMaterial.setLayoutManager(new LinearLayoutManager(this));
-        materialAdapter = new MaterialAdapter(materialList);
+        materialAdapter = new MaterialAdapter(materialList, this);
         recyclerMaterial.setAdapter(materialAdapter);
 
         fetchMaterialData();
@@ -73,17 +74,20 @@ public class MainActivity extends AppCompatActivity {
     }
     private void fetchMaterialData() {
         ApiService api = RetrofitClient.getApiService();
-        Call<MaterialsResponse> call = api.getMaterials();
 
-        call.enqueue(new Callback<MaterialsResponse>() {
+        // 1) Usamos el genérico List<Material> para que Retrofit/Gson sepa qué deserializar
+        Call<MaterialsResponse<List<MaterialsResponse.Material>>> call =
+                api.getAllMaterials();
+
+        call.enqueue(new Callback<MaterialsResponse<List<MaterialsResponse.Material>>>() {
             @Override
-            public void onResponse(Call<MaterialsResponse> call, Response<MaterialsResponse> response) {
+            public void onResponse(
+                    Call<MaterialsResponse<List<MaterialsResponse.Material>>> call,
+                    Response<MaterialsResponse<List<MaterialsResponse.Material>>> response
+            ) {
                 if (response.isSuccessful() && response.body() != null) {
-                    // 1) Obtenemos el objeto completo
-                    MaterialsResponse mr = response.body();
-
-                    // 2) Extraemos la lista real de Material
-                    List<Material> lista = mr.getContent();
+                    // 2) Obtenemos el payload tipado como List<Material>
+                    List<MaterialsResponse.Material> lista = response.body().getPayload();
 
                     // 3) Actualizamos nuestra materialList y notificamos al adapter
                     materialList.clear();
@@ -99,7 +103,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<MaterialsResponse> call, Throwable t) {
+            public void onFailure(
+                    Call<MaterialsResponse<List<MaterialsResponse.Material>>> call,
+                    Throwable t
+            ) {
                 Toast.makeText(
                         MainActivity.this,
                         "Fallo en la petición: " + t.getMessage(),
@@ -109,5 +116,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onItemClick(Material material, int position){
+        String publicationId = String.valueOf(material.getId());
+        Uri itemUri = Uri.parse("https://miapp.com/items/" + publicationId);
+        Intent intent = new Intent(Intent.ACTION_VIEW, itemUri);
+        intent.putExtra(ItemPublication.EXTRA_PUBLICATION_ID, publicationId);
+        intent.setPackage(getPackageName());
+        startActivity(intent);
+    }
 
 }

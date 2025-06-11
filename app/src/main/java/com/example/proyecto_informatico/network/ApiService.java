@@ -21,9 +21,10 @@ public interface ApiService {
     @POST("login")
     Call<AuthResponse> loginUser(@Body LoginRequest loginRequest);
     @GET("materials")
-    Call<MaterialsResponse> getMaterials();
+    Call<MaterialsResponse<List<MaterialsResponse.Material>>> getAllMaterials();
+
     @GET("materials/{id}")
-    Call<MaterialsResponse> getMaterialById(@Path("id") int id);
+    Call<MaterialsResponse<MaterialsResponse.Material>> getMaterialById(@Path("id") int id);
     @POST("materials")
     Call<Material> createMaterial(@Body Material material);
 }
