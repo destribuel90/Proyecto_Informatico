@@ -25,6 +25,7 @@
 
     <!-- TÍTULO -->
     <EditText
+
         android:id="@+id/edit_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

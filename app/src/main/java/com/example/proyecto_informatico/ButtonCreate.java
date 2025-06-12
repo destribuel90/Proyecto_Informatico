@@ -13,6 +13,7 @@ import android.provider.OpenableColumns;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -72,6 +73,8 @@ public class ButtonCreate extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        service = RetrofitClient.getApiService();
+
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         setContentView(R.layout.activity_button_create);
 
@@ -193,10 +196,10 @@ public class ButtonCreate extends AppCompatActivity {
 
     private void uploadMaterial() {
         // Get user ID from SharedPreferences
-        service = RetrofitClient.getApiService();
-        SharedPreferences prefs =
-                ButtonCreate.this.getSharedPreferences("prefs", Context.MODE_PRIVATE);
+        SharedPreferences prefs = ButtonCreate.this.getSharedPreferences("mi_prefs", Context.MODE_PRIVATE);
         String userId = prefs.getString("user_id", null);
+        Log.d("ButtonCreate", "User  ID: " + userId);
+
 
 
         try (InputStream is = getContentResolver().openInputStream(selectedFileUri)) {
@@ -227,7 +230,7 @@ public class ButtonCreate extends AppCompatActivity {
                     editUnit.getText().toString(),
                     MediaType.parse("text/plain")
             );
-            assert userId != null;
+
             RequestBody userIdBody = RequestBody.create(
                     userId,
                     MediaType.parse("text/plain")

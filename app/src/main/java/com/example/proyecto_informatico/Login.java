@@ -63,6 +63,7 @@ public class Login extends AppCompatActivity {
                     AuthResponse authResponse = response.body();
                     String token = authResponse.getToken();
                     String userId = String.valueOf(authResponse.getUserId());
+                    Log.d("ButtonCreate", "User  ID: " + userId);
                     // 1) Guardar el token en SharedPreferences
                     SharedPreferences prefs = getSharedPreferences("mi_prefs", MODE_PRIVATE);
                     prefs.edit()
