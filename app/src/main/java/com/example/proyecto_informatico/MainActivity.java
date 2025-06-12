@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements MaterialAdapter.O
     @Override
     public void onItemClick(Material material, int position){
         String publicationId = String.valueOf(material.getId());
-        Uri itemUri = Uri.parse("https://miapp.com/items/" + publicationId);
+        Uri itemUri = Uri.parse("https://srv852844.hstgr.cloud/items/" + publicationId);
         Intent intent = new Intent(Intent.ACTION_VIEW, itemUri);
         intent.putExtra(ItemPublication.EXTRA_PUBLICATION_ID, publicationId);
         intent.setPackage(getPackageName());
