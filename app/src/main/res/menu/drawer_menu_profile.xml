@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_edit_profile_drawer"
-            android:icon="@drawable/ic_share"
+            android:icon="@drawable/ic_share2"
             android:title="Compartir Perfil" />
         <item
             android:id="@+id/nav_settings_profile"
