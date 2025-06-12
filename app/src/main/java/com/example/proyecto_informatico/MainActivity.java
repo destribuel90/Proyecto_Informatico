@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity implements MaterialAdapter.O
     private RecyclerView recyclerMaterial;
     private MaterialAdapter materialAdapter;
     private List<Material> materialList = new ArrayList<>();
+    private String searchTerm = null;
+    private String semester   = null;
+    private Integer unit = null;
+    private Integer page = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements MaterialAdapter.O
 
         // 1) Usamos el genérico List<Material> para que Retrofit/Gson sepa qué deserializar
         Call<MaterialsResponse<List<MaterialsResponse.Material>>> call =
-                api.getAllMaterials();
+                api.getAllMaterials(searchTerm, semester, unit, page);
 
         call.enqueue(new Callback<MaterialsResponse<List<MaterialsResponse.Material>>>() {
             @Override

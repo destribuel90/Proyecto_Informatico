@@ -62,11 +62,12 @@ public class Login extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     AuthResponse authResponse = response.body();
                     String token = authResponse.getToken();
-
+                    String userId = String.valueOf(authResponse.getUserId());
                     // 1) Guardar el token en SharedPreferences
                     SharedPreferences prefs = getSharedPreferences("mi_prefs", MODE_PRIVATE);
                     prefs.edit()
                             .putString("TOKEN_KEY", token)
+                            .putString("user_id", userId)
                             .apply();
 
                     Log.d(TAG, "Token guardado: " + token);
