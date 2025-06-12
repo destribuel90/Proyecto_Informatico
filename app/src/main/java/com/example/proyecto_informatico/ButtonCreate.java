@@ -18,7 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
+import android.widget.ImageButton; // Make sure this is imported
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,6 +59,7 @@ public class ButtonCreate extends AppCompatActivity {
     private FrameLayout previewContainer;
     private ImageView imgPreview;
     private ImageButton btnRemoveFile;
+    private ImageButton btnClose; // Declare the ImageButton for closing
 
     private Uri selectedFileUri;
     private ApiService service;
@@ -82,7 +83,7 @@ public class ButtonCreate extends AppCompatActivity {
         setupTextWatchers();
         setupFileButtons();
         setupCreateButton();
-
+        setupCloseButton(); // Call this new method to set up the close button
 
         setupWindowInsets();
     }
@@ -95,6 +96,7 @@ public class ButtonCreate extends AppCompatActivity {
         previewContainer = findViewById(R.id.preview_container);
         imgPreview = findViewById(R.id.img_preview);
         btnRemoveFile = findViewById(R.id.btn_remove_file);
+        btnClose = findViewById(R.id.btn_close); // Find the close button by its ID
     }
 
     private void setupWindowInsets() {
@@ -170,6 +172,11 @@ public class ButtonCreate extends AppCompatActivity {
         });
     }
 
+    // New method for setting up the close button
+    private void setupCloseButton() {
+        btnClose.setOnClickListener(v -> finish()); // Set click listener to close the activity
+    }
+
     private boolean validateForm() {
         if (selectedFileUri == null) {
             Toast.makeText(this, "Please select a file", Toast.LENGTH_SHORT).show();
@@ -199,8 +206,6 @@ public class ButtonCreate extends AppCompatActivity {
         SharedPreferences prefs = ButtonCreate.this.getSharedPreferences("mi_prefs", Context.MODE_PRIVATE);
         String userId = prefs.getString("user_id", null);
         Log.d("ButtonCreate", "User  ID: " + userId);
-
-
 
         try (InputStream is = getContentResolver().openInputStream(selectedFileUri)) {
             if (is == null) {
