@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -25,6 +26,7 @@ import retrofit2.Response;
 
 public class Login extends AppCompatActivity {
     Button btnLogin;
+    TextView btnRegister;
     private static final String TAG = "Login";
     private EditText etEmail, etPassword;
     @Override
@@ -41,6 +43,11 @@ public class Login extends AppCompatActivity {
         etEmail = findViewById(R.id.et_email);
         etPassword = findViewById(R.id.et_password);
         btnLogin = findViewById(R.id.btn_login);
+        btnRegister = findViewById(R.id.login_footer);
+        btnRegister.setOnClickListener(v -> {
+            Intent intent = new Intent(Login.this, SignIn.class);
+            startActivity(intent);
+        });
         btnLogin.setOnClickListener(v -> {
             String email = etEmail.getText().toString();
             String password = etPassword.getText().toString();

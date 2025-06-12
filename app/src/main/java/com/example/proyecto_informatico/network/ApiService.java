@@ -3,6 +3,8 @@ package com.example.proyecto_informatico.network;
 import com.example.proyecto_informatico.model.AuthResponse;
 import com.example.proyecto_informatico.model.LoginRequest;
 import com.example.proyecto_informatico.model.MaterialsResponse;
+import com.example.proyecto_informatico.model.RegisterResponse;
+import com.example.proyecto_informatico.model.SignUpRequest;
 import com.example.proyecto_informatico.model.User;
 import com.example.proyecto_informatico.model.MaterialsResponse.Material;
 import java.util.List;
@@ -27,6 +29,13 @@ public interface ApiService {
     Call<User> createUser(@Body User user);
     @POST("login")
     Call<AuthResponse> loginUser(@Body LoginRequest loginRequest);
+    @POST("logout")
+    Call<Void> logoutUser();
+    @POST("register")
+    Call<RegisterResponse> registerUser(@Body SignUpRequest req);
+
+
+
     @GET("materials")
     Call<MaterialsResponse<List<MaterialsResponse.Material>>> getAllMaterials(
             @Query("search") String search,
@@ -47,4 +56,5 @@ public interface ApiService {
             @Part("user_id") RequestBody userId
 
     );
+
 }
