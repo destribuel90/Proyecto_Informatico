@@ -5,10 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/edit_main"
+    android:id="@+id/main"
     android:padding="16dp"
     android:background="@color/backgroundGray"
-    tools:context=".ButonEditcreateActivity">
+    tools:context=".ButtonCreate">
 
     <ImageButton
         android:id="@+id/btn_close"
@@ -25,7 +25,7 @@
         android:id="@+id/headerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Editar Publicación"
+        android:text="Crear Publicación"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/primaryColor"
@@ -137,7 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Cambiar Archivo"
+        android:text="Subir Archivo"
         app:icon="@drawable/ic_upload"
         app:iconTint="@color/primaryColor"
         app:iconPadding="12dp"
@@ -151,14 +151,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp"/>
 
-    <!-- Botón Guardar Cambios -->
+    <!-- Botón Crear -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_save"
+        android:id="@+id/btn_create"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Guardar Cambios"
+        android:text="Crear"
         app:icon="@drawable/ic_check"
         app:iconPadding="12dp"
         android:textColor="@android:color/white"
@@ -177,7 +177,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/btn_save"
+        app:layout_constraintTop_toBottomOf="@id/btn_create"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp">
