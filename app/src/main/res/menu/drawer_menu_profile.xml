@@ -15,6 +15,10 @@
     <item android:title="Acciones">
         <menu>
             <item
+                android:id="@+id/nav_change_profile"
+                android:icon="@drawable/ic_logout"
+                android:title="Cambiar Perfil" />
+            <item
                 android:id="@+id/nav_logout_profile"
                 android:icon="@drawable/ic_logout"
                 android:title="Cerrar Sesión" />

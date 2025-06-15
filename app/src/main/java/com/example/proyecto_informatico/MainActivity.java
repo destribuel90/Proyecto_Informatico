@@ -3,11 +3,16 @@ package com.example.proyecto_informatico;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -21,9 +26,12 @@ import com.example.proyecto_informatico.model.MaterialsResponse.Material;
 import com.example.proyecto_informatico.model.MaterialsResponse.Pagination;
 import com.example.proyecto_informatico.network.ApiService;
 import com.example.proyecto_informatico.network.RetrofitClient;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -43,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements MaterialAdapter.O
     private int totalPages = 1;
 
     private LinearLayoutManager layoutManager;
-
+    ChipGroup chipGroup;
     private String searchTerm = null;
     private String semester = null;
     private Integer unit = null;
@@ -74,11 +82,42 @@ public class MainActivity extends AppCompatActivity implements MaterialAdapter.O
         layoutManager = new LinearLayoutManager(this);
         recyclerMaterial.setLayoutManager(layoutManager);
         materialAdapter = new MaterialAdapter(materialList, this);
+        chipGroup = findViewById(R.id.chip_group_filters);
         recyclerMaterial.setAdapter(materialAdapter);
         btnProfile.setOnClickListener(v -> { startActivity(new Intent(MainActivity.this, Profile.class)); });
         btnHome.setOnClickListener(v -> { startActivity(new Intent(MainActivity.this, MainActivity.class)); });
         btnSearch.setOnClickListener(v -> { startActivity(new Intent(MainActivity.this, Search.class)); });
         btnAdd.setOnClickListener(v -> { startActivity(new Intent(MainActivity.this, ButtonCreate.class)); });
+        List<String> filtros = Arrays.asList("Semestre", "Unidad");
+        ChipGroup chipGroup = findViewById(R.id.chip_group_filters);
+
+        for (String filtro : filtros) {
+            Chip chip = new Chip(this);
+            chip.setText(filtro);
+            chip.setCheckable(true);
+            chip.setId(View.generateViewId());
+
+            chip.setOnCheckedChangeListener((button, isChecked) -> {
+                if (isChecked) {
+                    // Abrimos el diálogo y le pasamos el chip para poder desmarcar si hace falta
+                    showNumberInputDialog(filtro, chip);
+                } else {
+                    // Si el usuario desmarca manualmente, quitamos el filtro y recargamos
+                    if ("Semestre".equals(filtro)) {
+                        semester = null;
+                    } else if ("Unidad".equals(filtro)) {
+                        unit = 0;
+                    }
+                    currentPage = 1;
+                    fetchMaterialData();
+                }
+            });
+
+            chipGroup.addView(chip);
+        }
+
+
+
 
         // Scroll infinito
         recyclerMaterial.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -100,8 +139,40 @@ public class MainActivity extends AppCompatActivity implements MaterialAdapter.O
 
         fetchMaterialData();
 
-        // Navegación botones...
+
     }
+
+    private void showNumberInputDialog(String tipoFiltro, Chip chip) {
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setHint("Introduce un número para " + tipoFiltro);
+
+        new AlertDialog.Builder(this)
+                .setTitle("Filtro: " + tipoFiltro)
+                .setView(input)
+                .setPositiveButton("OK", (dialog, which) -> {
+                    String texto = input.getText().toString().trim();
+                    if (!texto.isEmpty()) {
+                        int valor = Integer.parseInt(texto);
+                        if ("Semestre".equals(tipoFiltro)) {
+                            semester = String.valueOf(valor);
+                        } else if ("Unidad".equals(tipoFiltro)) {
+                            unit = valor;
+                        }
+                        currentPage = 1;
+                        fetchMaterialData();
+                    } else {
+                        chip.setChecked(false);
+                        Toast.makeText(this, "Debes introducir un número", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Cancelar", (dialog, which) -> {
+                    chip.setChecked(false);
+                    dialog.cancel();
+                })
+                .show();
+    }
+
 
     private void loadMoreItems() {
         isLoading = true;

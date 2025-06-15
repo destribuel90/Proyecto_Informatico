@@ -1,5 +1,5 @@
 // PdfThumbnailTask.java
-package com.example.proyecto_informatico.util;
+package com.example.proyecto_informatico;
 
 import android.content.Context;
 import android.graphics.Bitmap;
