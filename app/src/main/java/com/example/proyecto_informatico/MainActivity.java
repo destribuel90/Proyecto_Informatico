@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.proyecto_informatico.adapter.MaterialAdapter;
 import com.example.proyecto_informatico.model.MaterialsResponse;
 import com.example.proyecto_informatico.model.MaterialsResponse.Material;
 import com.example.proyecto_informatico.model.MaterialsResponse.Pagination;

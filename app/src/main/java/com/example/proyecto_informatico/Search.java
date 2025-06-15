@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.proyecto_informatico.adapter.MaterialAdapter;
 import com.example.proyecto_informatico.model.MaterialsResponse;
 import com.example.proyecto_informatico.network.ApiService;
 import com.example.proyecto_informatico.network.RetrofitClient;

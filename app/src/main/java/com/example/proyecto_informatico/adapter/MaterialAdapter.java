@@ -1,6 +1,5 @@
-package com.example.proyecto_informatico;
+package com.example.proyecto_informatico.adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.proyecto_informatico.R;
 import com.example.proyecto_informatico.model.MaterialsResponse.Material;
 
 import java.util.List;
