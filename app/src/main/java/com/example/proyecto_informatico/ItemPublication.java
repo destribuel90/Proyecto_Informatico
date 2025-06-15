@@ -24,6 +24,7 @@ import com.example.proyecto_informatico.model.MaterialsResponse;
 import com.example.proyecto_informatico.model.MaterialsResponse.Material;
 import com.example.proyecto_informatico.network.ApiService;
 import com.example.proyecto_informatico.network.RetrofitClient;
+import com.example.proyecto_informatico.util.PdfThumbnailTask;
 
 import java.util.List;
 
@@ -151,6 +152,8 @@ public class ItemPublication extends AppCompatActivity {
                 } else {
                     Toast.makeText(ItemPublication.this, "PDF no disponible en servidor", Toast.LENGTH_LONG).show();
                 }
+                new PdfThumbnailTask(ItemPublication.this, previewImage)
+                        .execute(pdfUrl);
                 saveButton.setEnabled(true);
                 Log.d(TAG, "Estados: download=" + downloadButton.isEnabled()
                         + " share=" + shareButton.isEnabled()

@@ -2,6 +2,7 @@ package com.example.proyecto_informatico.network;
 
 import com.example.proyecto_informatico.model.AuthResponse;
 import com.example.proyecto_informatico.model.LoginRequest;
+import com.example.proyecto_informatico.model.LogoutResponse;
 import com.example.proyecto_informatico.model.MaterialsResponse;
 import com.example.proyecto_informatico.model.RegisterResponse;
 import com.example.proyecto_informatico.model.SignUpRequest;
@@ -21,16 +22,16 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
-    @GET("users")
-    Call<List<User>> getUsers();
-    @GET("users/{id}")
+    @GET("user")
+    Call<List<User>> getUser();
+    @GET("user/{id}")
     Call<User> getUserById(@Path("id") int id);
-    @POST("users")
+    @POST("user")
     Call<User> createUser(@Body User user);
     @POST("login")
     Call<AuthResponse> loginUser(@Body LoginRequest loginRequest);
     @POST("logout")
-    Call<Void> logoutUser();
+    Call<LogoutResponse> logoutUser();
     @POST("register")
     Call<RegisterResponse> registerUser(@Body SignUpRequest req);
 
