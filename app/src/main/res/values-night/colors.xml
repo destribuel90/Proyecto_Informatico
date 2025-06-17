@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="backgroundContent">#0b0a0a</color>
+    <color name="cardColor">#3b3737</color>
+    <color name="letter">#DDDDDD</color>
+    <!-- res/values-night/colors.xml -->
+    <color name="popup_bg">#222222</color>
+    <color name="nav_item_color">#EEEEEE</color>
+
+
+</resources>

@@ -5,6 +5,7 @@ import static android.content.ContentValues.TAG;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
@@ -67,7 +70,15 @@ public class Profile extends AppCompatActivity {
             if (id == R.id.nav_logout_profile) {
                 logout();
             }
-            // else if (id == R.id.nav_perfil_profile) { … }
+            else if (id == R.id.nav_mode_defaul_color) {
+                colorDefault();
+            }
+            else if (id == R.id.nav_mode_light_color) {
+                colorLight();
+            }
+            else if (id == R.id.nav_mode_night_color) {
+                colorNight();
+            }
             // else if (id == …) { … }
 
             drawerLayout.closeDrawer(GravityCompat.END);
@@ -103,6 +114,7 @@ public class Profile extends AppCompatActivity {
             Intent intent = new Intent(Profile.this, ButtonCreate.class);
             startActivity(intent);
         });
+
 //        setUserData();
     }
 //    public void setUserData() {
@@ -173,7 +185,14 @@ public class Profile extends AppCompatActivity {
                 Log.e(TAG, "onFailure logoutUser", t);
             }
         });
-
-
+    }
+    private void colorDefault() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+    }
+    private void colorLight() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+    }
+    private void colorNight() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     }
 }

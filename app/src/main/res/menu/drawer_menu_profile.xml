@@ -22,6 +22,18 @@
                 android:id="@+id/nav_logout_profile"
                 android:icon="@drawable/ic_logout"
                 android:title="Cerrar Sesión" />
+            <item
+                android:id="@+id/nav_mode_defaul_color"
+                android:icon="@drawable/ic_logout"
+                android:title="Usar tema del dispositivo" />
+            <item
+                android:id="@+id/nav_mode_light_color"
+                android:icon="@drawable/ic_logout"
+                android:title="Tema claro" />
+            <item
+                android:id="@+id/nav_mode_night_color"
+                android:icon="@drawable/ic_logout"
+                android:title="Tema oscuro" />
         </menu>
     </item>
 
