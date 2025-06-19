@@ -15,24 +15,20 @@
     <item android:title="Acciones">
         <menu>
             <item
-                android:id="@+id/nav_change_profile"
-                android:icon="@drawable/ic_logout"
-                android:title="Cambiar Perfil" />
-            <item
                 android:id="@+id/nav_logout_profile"
                 android:icon="@drawable/ic_logout"
                 android:title="Cerrar Sesión" />
             <item
                 android:id="@+id/nav_mode_defaul_color"
-                android:icon="@drawable/ic_logout"
+                android:icon="@drawable/ic_android"
                 android:title="Usar tema del dispositivo" />
             <item
                 android:id="@+id/nav_mode_light_color"
-                android:icon="@drawable/ic_logout"
+                android:icon="@drawable/ic_light_mode"
                 android:title="Tema claro" />
             <item
                 android:id="@+id/nav_mode_night_color"
-                android:icon="@drawable/ic_logout"
+                android:icon="@drawable/ic_dark_mode"
                 android:title="Tema oscuro" />
         </menu>
     </item>
