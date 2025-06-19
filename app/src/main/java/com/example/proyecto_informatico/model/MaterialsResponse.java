@@ -101,8 +101,8 @@ public class MaterialsResponse<T> {
         @SerializedName("title")
         private String title;
 
-        @SerializedName("user_id")
-        private String userId;
+        @SerializedName("professor")
+        private String professor;
 
         @SerializedName(value = "file_url", alternate = { "file_path" })
         private String fileUrl;
@@ -135,12 +135,12 @@ public class MaterialsResponse<T> {
             this.title = title;
         }
 
-        public String getUserId() {
-            return userId;
+        public String getProfessor() {
+            return professor;
         }
 
-        public void setUserId(String userId) {
-            this.userId = userId;
+        public void setUserId(String professor) {
+            this.professor = professor;
         }
 
         public String getFileUrl() {
