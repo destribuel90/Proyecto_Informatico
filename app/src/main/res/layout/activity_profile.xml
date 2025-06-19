@@ -126,9 +126,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_edit_profile"
-            app:tabIndicatorColor="@color/primaryColor"
-            app:tabSelectedTextColor="@color/primaryColor"
-            app:tabTextColor="@android:color/black">
+            app:tabIndicatorColor="@color/accentColor"
+            app:tabSelectedTextColor="@color/accentColor"
+            app:tabTextColor="@color/letter">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Proyecto_Informatico</string>
+    <string name="app_name">PoliEduca</string>
     <!-- res/values/strings.xml -->
     <string name="cd_add">Agregar nueva publicación</string>
 

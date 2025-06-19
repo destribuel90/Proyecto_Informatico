@@ -28,7 +28,7 @@
         android:layout_marginTop="12dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
-        app:cardBackgroundColor="@android:color/white"
+        app:cardBackgroundColor="@color/backgroundContent"
         app:layout_constraintTop_toBottomOf="@id/titulo_busqueda"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -44,7 +44,7 @@
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:background="@android:color/transparent"
-            android:textColor="@color/iconColor"
+            android:textColor="@color/letter"
             android:textColorHint="#999999"
             android:singleLine="true"
             android:focusable="true"
