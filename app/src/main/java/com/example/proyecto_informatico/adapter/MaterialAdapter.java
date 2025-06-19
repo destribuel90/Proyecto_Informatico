@@ -84,6 +84,7 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.Materi
             txtLabel.setText(material.getTitle());
             txtUnidad.setText("Unidad " + material.getUnit());
             txtSemestre.setText("Semestre " + material.getSemester());
+            txtUserName.setText(material.getProfessor());
 //            rating.setRating(material.getRating());
 
             itemView.setOnClickListener(new View.OnClickListener() {

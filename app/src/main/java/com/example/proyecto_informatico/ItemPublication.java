@@ -35,6 +35,7 @@ import retrofit2.Response;
 
 public class ItemPublication extends AppCompatActivity {
     public static final String EXTRA_PUBLICATION_ID = "extra_publication_id";
+    public static final String EXTRA_PROFESSOR = "extra_professor";
     private static final int CREATE_FILE_REQUEST = 1;
     private static final String TAG = "ItemPublication";
 
@@ -48,6 +49,7 @@ public class ItemPublication extends AppCompatActivity {
     private ImageButton saveButton;
     private ImageButton crossButton;
     private ImageView previewImage;
+    private TextView Professor;
     private String pdfUrl = null;
     private String pdfName = null;
     private String itemId;
@@ -77,6 +79,7 @@ public class ItemPublication extends AppCompatActivity {
         saveButton = findViewById(R.id.btn_save);
         crossButton = findViewById(R.id.btn_cross);
         previewImage = findViewById(R.id.img_publicacion);
+        Professor = findViewById(R.id.user_name);
 
         // Deshabilitar inicial
         downloadButton.setEnabled(false);
@@ -84,8 +87,9 @@ public class ItemPublication extends AppCompatActivity {
         saveButton.setEnabled(false);
 
         itemId = resolveItemId(getIntent());
+        String professor = getIntent().getStringExtra(EXTRA_PROFESSOR);
         if (itemId != null) {
-            loadPublicationDetails(itemId);
+            loadPublicationDetails(itemId, professor);
         } else {
             Toast.makeText(this, "ID de publicación no válido", Toast.LENGTH_SHORT).show();
             finish();
@@ -122,7 +126,7 @@ public class ItemPublication extends AppCompatActivity {
         return null;
     }
 
-    private void loadPublicationDetails(String id) {
+    private void loadPublicationDetails(String id, String professor) {
         Log.d(TAG, "Cargando detalles para ID: " + id);
         int publicationId = Integer.parseInt(id);
         ApiService service = RetrofitClient.getApiService();
@@ -141,6 +145,7 @@ public class ItemPublication extends AppCompatActivity {
                 publicationDate.setText(publication.getCreatedAt());
                 publicationSemester.setText(publication.getSemester());
                 publicationUnit.setText(publication.getUnit());
+                Professor.setText(professor);
 
                 // Se debe asegurar que el objeto JSON incluya 'fileUrl'
                 pdfUrl = "http://31.220.22.166:8080/storage/" + publication.getFileUrl();
