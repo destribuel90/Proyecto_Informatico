@@ -76,6 +76,7 @@ public class Login extends AppCompatActivity {
                     prefs.edit()
                             .putString("TOKEN_KEY", token)
                             .putString("user_id", userId)
+                            .putString("user_name", authResponse.getUser().getName())
                             .apply();
 
                     Log.d(TAG, "Token guardado: " + token);

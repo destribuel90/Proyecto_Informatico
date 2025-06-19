@@ -114,7 +114,10 @@ public class Profile extends AppCompatActivity {
             Intent intent = new Intent(Profile.this, ButtonCreate.class);
             startActivity(intent);
         });
-
+        SharedPreferences prefs =
+                Profile.this.getSharedPreferences("mi_prefs", Context.MODE_PRIVATE);
+        String userName1 = prefs.getString("user_name", null);
+        userName.setText(userName1);
 //        setUserData();
     }
 //    public void setUserData() {

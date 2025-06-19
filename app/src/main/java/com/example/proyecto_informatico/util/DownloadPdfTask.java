@@ -1,4 +1,4 @@
-package com.example.proyecto_informatico;
+package com.example.proyecto_informatico.util;
 
 import android.content.ContentResolver;
 import android.content.Context;

@@ -24,6 +24,8 @@ import com.example.proyecto_informatico.model.MaterialsResponse;
 import com.example.proyecto_informatico.model.MaterialsResponse.Material;
 import com.example.proyecto_informatico.network.ApiService;
 import com.example.proyecto_informatico.network.RetrofitClient;
+import com.example.proyecto_informatico.util.DownloadPdfTask;
+import com.example.proyecto_informatico.util.PdfThumbnailTask;
 
 import java.util.List;
 

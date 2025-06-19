@@ -3,6 +3,7 @@ package com.example.proyecto_informatico.network;
 import com.example.proyecto_informatico.model.AuthResponse;
 import com.example.proyecto_informatico.model.LoginRequest;
 import com.example.proyecto_informatico.model.LogoutResponse;
+import com.example.proyecto_informatico.model.MaterialUpdateRequest;
 import com.example.proyecto_informatico.model.MaterialsResponse;
 import com.example.proyecto_informatico.model.RegisterResponse;
 import com.example.proyecto_informatico.model.SignUpRequest;
@@ -17,6 +18,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Body;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -56,6 +58,11 @@ public interface ApiService {
             @Part("unit") RequestBody unit,
             @Part("user_id") RequestBody userId
 
+    );
+    @PUT("materials/{id}")
+    Call<Void> updateMaterial(
+            @Path("id") int id,
+            @Body MaterialUpdateRequest updateRequest
     );
 
 }
