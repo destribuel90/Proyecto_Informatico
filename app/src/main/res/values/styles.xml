@@ -14,7 +14,7 @@
         <!-- Fondo del popup -->
         <item name="android:popupBackground">@color/popup_bg</item>
         <!-- Tint para iconos -->
-        <!-- Selector para texto -->
+
         <item name="android:itemTextAppearance">@style/MyPopupMenuTextAppearance</item>
     </style>
 
