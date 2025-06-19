@@ -63,6 +63,7 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.Materi
         TextView txtLabel;
         TextView txtUnidad;
         TextView txtSemestre;
+        TextView txtUserName;
         RatingBar rating;
         OnItemClickListener listener;
 
@@ -72,7 +73,7 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.Materi
             txtLabel = itemView.findViewById(R.id.txtLabel);
             txtUnidad = itemView.findViewById(R.id.txtUnidad);
             txtSemestre = itemView.findViewById(R.id.txtSemestre);
-//
+            txtUserName = itemView.findViewById(R.id.user_name);
             this.listener = listener;
         }
 
